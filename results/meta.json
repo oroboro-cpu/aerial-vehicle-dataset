@@ -1,0 +1,56 @@
+{
+  "train_A": {
+    "video_fps": 29.97002997002997,
+    "total_frames": 576,
+    "saved": 39,
+    "step": 15,
+    "width": 1920,
+    "height": 1080,
+    "sample_fps": 1.998001998001998
+  },
+  "train_B": {
+    "video_fps": 24.0,
+    "total_frames": 750,
+    "saved": 63,
+    "step": 12,
+    "width": 3840,
+    "height": 2160,
+    "sample_fps": 2.0
+  },
+  "train_C": {
+    "video_fps": 23.976023976023978,
+    "total_frames": 405,
+    "saved": 34,
+    "step": 12,
+    "width": 3840,
+    "height": 2160,
+    "sample_fps": 1.998001998001998
+  },
+  "train_D": {
+    "video_fps": 29.97002997002997,
+    "total_frames": 734,
+    "saved": 49,
+    "step": 15,
+    "width": 3840,
+    "height": 2160,
+    "sample_fps": 1.998001998001998
+  },
+  "eval": {
+    "video_fps": 30.0,
+    "total_frames": 918,
+    "saved": 153,
+    "step": 6,
+    "width": 2160,
+    "height": 3840,
+    "sample_fps": 5.0
+  },
+  "eval2": {
+    "video_fps": 29.97002997002997,
+    "total_frames": 1314,
+    "saved": 219,
+    "step": 6,
+    "width": 3840,
+    "height": 2160,
+    "sample_fps": 4.995004995004995
+  }
+}

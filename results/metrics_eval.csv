@@ -1,0 +1,4 @@
+,GT,TP,FP,FN,detection_rate,precision,FA_per_min_5fps,FA_task_formula,frames
+0-200,164,60,95,104,0.37,0.39,475.0,95.0,60
+200-400,1,1,1,0,1.0,0.5,5.0,1.0,60
+>400,0,0,0,0,,,0.0,0.0,60
