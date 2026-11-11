@@ -4,6 +4,8 @@ Test task for thefourthlaw.ai. I focused on the data side: how frames are sample
 
 **Repo map:** `pipeline.ipynb` (all code, Google Colab) · `docs/labeling_guide.md` (labeling rules) · `docs/qa_notes.md` (error types seen in review) · `results/` (edit counts, distances, metrics, side runs) · `labels.zip` (raw pre-labels `labels_raw`, first-pass pre-labels `labels_raw_v1`, corrected labels `labels_fixed`; YOLO format) · `assets/` (GT vs prediction frames, videos, CVAT screenshots).
 
+**Notebook guide:** `pipeline.ipynb` keeps the full working history, including superseded attempts. Final pipeline cells: 1 setup · 2 frames · 10 final pre-labels, review sample, CVAT packages · 21 eval2 · 24 helpers · 25 CVAT export → labels + edit counts · 26 distances · 27 metrics · 30 frames and videos. Superseded: 3–9 (first pass, diagnostics), 12–17 (earlier helpers, debugging), 28 (post-hoc run, stopped). CVAT correction is a manual step between cells 10 and 25.
+
 | Rule | Status |
 |---|---|
 | 1. Eval out of every decision | All settings fixed on train frames before any eval metric; nothing changed after (see Eval setup) |
