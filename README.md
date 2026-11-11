@@ -127,6 +127,7 @@ These are the results of the setting fixed before evaluation, reported as they c
 2. IoU 0.5 is strict for 15–30 px boxes. A side run at IoU 0.3 is in `results/metrics_iou03.csv` and is not used above.
 
 **Assets:**
+- Label review video: `assets/labels_review.mp4` shows all 114 reviewed frames, 1 per second; green = my corrected labels, red = model pre-labels, with box counts before and after correction.
 - Frames (green = ground truth, red = model): `assets/eval_*_gt_vs_pred.jpg`, `assets/eval2_*_gt_vs_pred.jpg`.
 - Videos: `assets/eval_predictions.mp4`, `assets/eval2_predictions.mp4`. They show the labeler's raw predictions on the sampled eval frames (the same frames used for metrics), coloured by distance band: green 0–200 m, orange 200–400 m, grey > 400 m. This is not an on-board detector. The videos were rendered from saved predictions because the Colab GPU quota ran out.
 
