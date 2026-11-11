@@ -1,6 +1,6 @@
 # Aerial vehicle detection: dataset pipeline and range-split evaluation
 
-Test task for thefourthlaw.ai. I focused on the data side: how frames are sampled, how model pre-labels are checked and corrected, which quality criteria apply, and how metrics are split into 0–200 m and 200–400 m. I did **not** train the on-board detector (< 500k parameters); see [Training](#training).
+I focused on the data side: how frames are sampled, how model pre-labels are checked and corrected, which quality criteria apply, and how metrics are split into 0–200 m and 200–400 m. I did **not** train the on-board detector (< 500k parameters); see [Training](#training).
 
 **Repo map:** `pipeline.ipynb` (all code, Google Colab) · `docs/labeling_guide.md` (labeling rules) · `docs/qa_notes.md` (error types seen in review) · `results/` (edit counts, distances, metrics, side runs) · `labels.zip` (YOLO format: `labels_fixed` = corrected labels of the 114 reviewed frames; `labels_raw` = pre-labels, final setting on the reviewed frames and first-pass setting on the other frames; `labels_raw_v1` = first-pass pre-labels) · `assets/` (GT vs prediction frames, videos, CVAT screenshots).
 
