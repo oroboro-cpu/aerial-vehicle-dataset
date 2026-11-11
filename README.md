@@ -2,9 +2,9 @@
 
 Test task for thefourthlaw.ai. I focused on the data side: how frames are sampled, how model pre-labels are checked and corrected, which quality criteria apply, and how metrics are split into 0–200 m and 200–400 m. I did **not** train the on-board detector (< 500k parameters); see [Training](#training).
 
-**Repo map:** `pipeline.ipynb` (all code, Google Colab) · `docs/labeling_guide.md` (labeling rules) · `docs/qa_notes.md` (error types seen in review) · `results/` (edit counts, distances, metrics, side runs) · `labels.zip` (raw pre-labels `labels_raw`, first-pass pre-labels `labels_raw_v1`, corrected labels `labels_fixed`; YOLO format) · `assets/` (GT vs prediction frames, videos, CVAT screenshots).
+**Repo map:** `pipeline.ipynb` (all code, Google Colab) · `docs/labeling_guide.md` (labeling rules) · `docs/qa_notes.md` (error types seen in review) · `results/` (edit counts, distances, metrics, side runs) · `labels.zip` (YOLO format: `labels_fixed` = corrected labels of the 114 reviewed frames; `labels_raw` = pre-labels, final setting on the reviewed frames and first-pass setting on the other frames; `labels_raw_v1` = first-pass pre-labels) · `assets/` (GT vs prediction frames, videos, CVAT screenshots).
 
-**Notebook guide:** `pipeline.ipynb` keeps the full working history, including superseded attempts. Final pipeline cells: 1 setup · 2 frames · 10 final pre-labels, review sample, CVAT packages · 21 eval2 · 24 helpers · 25 CVAT export → labels + edit counts · 26 distances · 27 metrics · 30 frames and videos. Superseded: 3–9 (first pass, diagnostics), 12–17 (earlier helpers, debugging), 28 (post-hoc run, stopped). CVAT correction is a manual step between cells 10 and 25.
+**Notebook guide:** `pipeline.ipynb` keeps the full working history, including superseded attempts. Final pipeline cells: 1 setup · 2 frames · 10 final pre-labels, review sample, CVAT packages · 21 eval2 · 24 helpers · 25 CVAT export → labels + edit counts · 26 distances · 27 metrics · 30 frames and videos. Superseded: 3–9 (first pass, diagnostics), 12–17 (earlier helpers, debugging), 28 (post-hoc run, stopped); the remaining cells are checks and re-runs after Colab restarts. CVAT correction is a manual step between cells 10 and 25.
 
 | Rule | Status |
 |---|---|
@@ -34,7 +34,7 @@ Test task for thefourthlaw.ai. I focused on the data side: how frames are sample
 ### Pre-labeling
 - **Model:** YOLO11x with COCO weights + SAHI tiled inference. COCO `car`, `truck`, `bus` → one class `vehicle`.
 - **First pass** (640 px tiles, conf 0.25, motorcycles included) missed most vehicles on train_A (1080p): cars there are 10–25 px long, and COCO has few vehicles seen from above or behind.
-- **Final setting, chosen on 4 train frames:** tile ≈ frame width / 6 (320 px for train_A, 640 px for the landscape 4K clips, 352 px for the portrait eval), 20% overlap, conf 0.10, full-frame pass off, motorcycles dropped. The first-pass labels are kept in `labels/labels_raw_v1` for comparison.
+- **Final setting, chosen on 4 train frames:** tile ≈ frame width / 6 (320 px for train_A, 640 px for the landscape 4K clips, 352 px for the portrait eval), 20% overlap, conf 0.10, full-frame pass off, motorcycles dropped. The first-pass labels are kept in `labels.zip` (`labels_raw_v1`) for comparison.
 
 ### Review sample
 Correcting every frame did not fit the time budget, so I corrected a sample and measured the pre-labeler's error rate on it:
